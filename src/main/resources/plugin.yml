@@ -1,0 +1,5 @@
+name: HastyBoys
+main: me.calebbassham.hastyboys.HastyBoysPlugin
+version: 0.0.0
+author: Caleb Bassham
+depend: [ScenarioManager]
