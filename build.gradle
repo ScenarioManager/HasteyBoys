@@ -18,8 +18,8 @@ apply plugin: 'kotlin'
 apply plugin: "com.github.johnrengelman.shadow"
 
 repositories {
-    maven { url = "https://jitpack.io" }
     mavenCentral()
+    maven { url = "https://s3.amazonaws.com/caleb-maven/" }
     maven { url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/" }
     maven { url = "https://hub.spigotmc.org/nexus/content/groups/public/" }
 }
@@ -28,7 +28,7 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     compileOnly "org.spigotmc:spigot-api:1.8-R0.1-SNAPSHOT"
 
-    compileOnly("com.gitlab.CalebBassham:ScenarioManager:0.2.2") {
+    compileOnly ("me.calebbassham:ScenarioManager:0.2.2") {
         transitive = false
     }
 }
@@ -50,6 +50,5 @@ jar {
     from configurations.compile.collect { zipTree it }
     archiveName = "HastyBoys.jar"
 }
-
 
 build.dependsOn shadowJar
