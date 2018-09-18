@@ -1,14 +1,16 @@
 package me.calebbassham.hastyboys
 
 import me.calebbassham.scenariomanager.api.Scenario
+import me.calebbassham.scenariomanager.api.ScenarioManager
 import org.bukkit.Material
 import org.bukkit.enchantments.Enchantment
+import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.inventory.PrepareItemCraftEvent
 import org.bukkit.plugin.java.JavaPlugin
 
-class HastyBoys(plugin: JavaPlugin) : Scenario("HastyBoys", plugin), Listener {
+class HastyBoys(plugin: JavaPlugin, private val sm: ScenarioManager) : Scenario("HastyBoys", plugin), Listener {
 
     override val description = "All tools are enchanted with efficiency III."
 
@@ -18,6 +20,12 @@ class HastyBoys(plugin: JavaPlugin) : Scenario("HastyBoys", plugin), Listener {
 
     @EventHandler
     fun onCraftPrepare(e: PrepareItemCraftEvent) {
+        val player = e.viewers.firstOrNull() as? Player ?: return
+        val world = player.world
+
+        if (!sm.isGamePlayer(player)) return
+        if (!sm.isGameWorld(world)) return
+
         val result = e.recipe?.result ?: return
 
         if (!tools.contains(result.type)) return
