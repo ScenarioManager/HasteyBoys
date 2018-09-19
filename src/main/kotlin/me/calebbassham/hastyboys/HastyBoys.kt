@@ -10,7 +10,7 @@ import org.bukkit.event.Listener
 import org.bukkit.event.inventory.PrepareItemCraftEvent
 import org.bukkit.plugin.java.JavaPlugin
 
-class HastyBoys(plugin: JavaPlugin, private val sm: ScenarioManager) : Scenario("HastyBoys", plugin), Listener {
+class HastyBoys : Scenario("HastyBoys"), Listener {
 
     override val description = "All tools are enchanted with efficiency III."
 
@@ -23,8 +23,8 @@ class HastyBoys(plugin: JavaPlugin, private val sm: ScenarioManager) : Scenario(
         val player = e.viewers.firstOrNull() as? Player ?: return
         val world = player.world
 
-        if (!sm.isGamePlayer(player)) return
-        if (!sm.isGameWorld(world)) return
+        if (!scenarioManager.isGamePlayer(player)) return
+        if (!scenarioManager.isGameWorld(world)) return
 
         val result = e.recipe?.result ?: return
 
