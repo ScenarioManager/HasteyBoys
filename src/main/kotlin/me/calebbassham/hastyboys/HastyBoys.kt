@@ -23,8 +23,8 @@ class HastyBoys : Scenario("HastyBoys"), Listener {
         val player = e.viewers.firstOrNull() as? Player ?: return
         val world = player.world
 
-        if (!scenarioManager.isGamePlayer(player)) return
-        if (!scenarioManager.isGameWorld(world)) return
+        if (!scenarioManager.gamePlayerProvider.isGamePlayer(player)) return
+        if (!scenarioManager.gameWorldProvider.isGameWorld(world)) return
 
         val result = e.recipe?.result ?: return
 
