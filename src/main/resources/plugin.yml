@@ -1,5 +1,6 @@
-name: HastyBoys
-main: me.calebbassham.hastyboys.HastyBoysPlugin
-version: 1.0.0
+name: HasteyBoys
+description: All tools are enchanted with efficiency III.
 author: Caleb Bassham
+main: me.calebbassham.hasteyboys.HasteyBoysPlugin
+version: 1.0
 depend: [ScenarioManager]

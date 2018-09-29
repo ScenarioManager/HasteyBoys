@@ -12,7 +12,7 @@ buildscript {
 }
 
 group = 'me.calebbassham'
-version = '1.0.0'
+version = '1.0'
 
 apply plugin: 'kotlin'
 apply plugin: "com.github.johnrengelman.shadow"
@@ -28,9 +28,7 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     compileOnly "org.spigotmc:spigot-api:1.8-R0.1-SNAPSHOT"
 
-    compileOnly ("me.calebbassham:ScenarioManager:0.4.0") {
-        transitive = false
-    }
+    compileOnly "me.calebbassham:ScenarioManager:0.5.0"
 }
 
 compileKotlin {
@@ -42,13 +40,13 @@ compileTestKotlin {
 }
 
 shadowJar {
-    relocate 'kotlin', 'me.calebbassham.hastyboys.depend.kotlinstdlib'
-    archiveName = "HastyBoys.jar"
+    relocate 'kotlin', 'me.calebbassham.hasteyboys.depend.kotlinstdlib'
+    archiveName = "HasteyBoys.jar"
 }
 
 jar {
     from configurations.compile.collect { zipTree it }
-    archiveName = "HastyBoys.jar"
+    archiveName = "HasteyBoys.jar"
 }
 
 build.dependsOn shadowJar

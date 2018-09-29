@@ -1,4 +1,4 @@
-# HastyBoys
+# HasteyBoys
 All crafted tools are enchanted with efficiency III.
 
 ### Scenario Manager

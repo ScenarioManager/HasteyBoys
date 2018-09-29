@@ -1,12 +1,12 @@
-package me.calebbassham.hastyboys
+package me.calebbassham.hasteyboys
 
 import me.calebbassham.scenariomanager.api.scenarioManager
 import org.bukkit.plugin.java.JavaPlugin
 
-class HastyBoysPlugin : JavaPlugin() {
+class HasteyBoysPlugin : JavaPlugin() {
 
     override fun onEnable() {
-        scenarioManager?.registerScenario(HastyBoys(), this)
+        scenarioManager.register(HasteyBoys(), this)
     }
 
 }
